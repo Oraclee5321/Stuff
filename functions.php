@@ -20,8 +20,8 @@ function getPostcode($postcode)
     curl_close($ch);
 
     $json = json_decode($response, true);
-
-    return $json["results"][$postcode]["0"]["city"];
+    $return_value = $json["results"][$postcode]["0"];
+    return json_encode($return_value);
 }
 
 if (isset($_GET["postcode"])) {
