@@ -24,6 +24,16 @@ function getPostcode($postcode)
     return json_encode($return_value);
 }
 
+function getWeather(){
+    $api_key = "af8a63d35394f3eae7c96f34014651ff";
+    $get_coord_json = file_get_contents("https://api.openweathermap.org/geo/1.0/zip?zip=E14,GB&appid={".$api_key."}");
+    echo $get_coord_json;
+}
+
 if (isset($_GET["postcode"])) {
     echo getPostcode($_GET["postcode"]);
+}
+
+if(isset($_GET["weather"])){
+    echo getWeather($_GET["weather"]);
 }
