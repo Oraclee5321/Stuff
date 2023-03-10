@@ -44,9 +44,39 @@ function getAirQuality(){
     $get_air_json = json_decode($get_air_json, true);
     //get air quality
     $air_quality = $get_air_json["list"]["0"]["main"]["aqi"];
+    //get carbon monoxide
+    $co = $get_air_json["list"]["0"]["components"]["co"];
+    //get nitrogen dioxide
+    $no2 = $get_air_json["list"]["0"]["components"]["no2"];
+    //get ozone
+    $o3 = $get_air_json["list"]["0"]["components"]["o3"];
+    //get sulphur dioxide
+    $so2 = $get_air_json["list"]["0"]["components"]["so2"];
+    //get pm2.5
+    $pm2_5 = $get_air_json["list"]["0"]["components"]["pm2_5"];
+    //get pm10
+    $pm10 = $get_air_json["list"]["0"]["components"]["pm10"];
+    //get nitrogen monoxide
+    $n02 = $get_air_json["list"]["0"]["components"]["no"];
     //present data
     echo "The air quality is ".$air_quality.".";
-
+    //echo out the list of pollutants
+    echo "<br>";
+    echo "The pollutants are: ";
+    echo "<br>";
+    echo "Carbon monoxide: ".$co."ppm";
+    echo "<br>";
+    echo "Nitrogen monoxide: ".$n02."ppm";
+    echo "<br>";
+    echo "Nitrogen dioxide: ".$no2."ppm";
+    echo "<br>";
+    echo "Ozone: ".$o3."ppm";
+    echo "<br>";
+    echo "Sulphur dioxide: ".$so2."ppm";
+    echo "<br>";
+    echo "PM2.5: ".$pm2_5."µg/m³";
+    echo "<br>";
+    echo "PM10: ".$pm10."µg/m³";
 }
 getWeather();
 echo "<br>";
